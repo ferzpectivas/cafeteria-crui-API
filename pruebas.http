@@ -1,0 +1,55 @@
+### Compatible con "REST Client" (VS Code) y ThunderClient
+
+### 1) Bienvenida
+GET http://localhost:3000/
+
+### 2) Listar todos
+GET http://localhost:3000/api/productos
+
+### 3) Producto existente (200)
+GET http://localhost:3000/api/productos/1
+
+### 4) Producto inexistente (404)
+GET http://localhost:3000/api/productos/99
+
+### 5) Crear producto válido (201)
+POST http://localhost:3000/api/productos
+Content-Type: application/json
+
+{ "nombre": "Jugo de naranja", "precio": 2000, "categoria": "bebida" }
+
+### 6) Crear con nombre vacío (400)
+POST http://localhost:3000/api/productos
+Content-Type: application/json
+
+{ "nombre": "", "precio": 2000 }
+
+### 7) Crear con precio como texto (400)
+POST http://localhost:3000/api/productos
+Content-Type: application/json
+
+{ "nombre": "Alfajor", "precio": "1500" }
+
+### 8) Crear con precio cero (400)
+POST http://localhost:3000/api/productos
+Content-Type: application/json
+
+{ "nombre": "Alfajor", "precio": 0 }
+
+### 9) Modificar producto (200)
+PUT http://localhost:3000/api/productos/1
+Content-Type: application/json
+
+{ "nombre": "Café con leche grande", "precio": 2200, "categoria": "bebida" }
+
+### 10) Modificar inexistente (404)
+PUT http://localhost:3000/api/productos/99
+Content-Type: application/json
+
+{ "nombre": "Nada", "precio": 100 }
+
+### 11) Eliminar producto (200)
+DELETE http://localhost:3000/api/productos/2
+
+### 12) Verificar que ya no existe (404)
+GET http://localhost:3000/api/productos/2
